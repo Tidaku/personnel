@@ -33,3 +33,10 @@ CREATE TABLE Utilisateur (
     FOREIGN KEY (IdEmployé),
     REFERENCES Employés(IdEmployé),
 ); 
+
+CREATE TABLE Roles (
+  IdRoles int PRIMARY KEY,
+  RolesSimpleEmployé Varchar(255),
+  RolesEmployé Varchar (255),
+  RolesSuperEmployé Varchar (255),
+  );
