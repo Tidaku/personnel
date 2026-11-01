@@ -59,7 +59,11 @@ public class Ligue implements Serializable, Comparable<Ligue>
 
 	public void setNom(String nom)
 	{
+		// Le nom sert au tri des ligues : un TreeSet ne retrouve plus un élément dont le tri a changé.
+		boolean presente = gestionPersonnel.remove(this);
 		this.nom = nom;
+		if (presente)
+			gestionPersonnel.add(this);
 	}
 
 	/**
@@ -132,6 +136,7 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	
 	public void remove()
 	{
+		employes.clear();
 		gestionPersonnel.remove(this);
 	}
 	
