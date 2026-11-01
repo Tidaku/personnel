@@ -115,9 +115,14 @@ public class Ligue implements Serializable, Comparable<Ligue>
 		return employe;
 	}
 	
-	void remove(Employe employe)
+	void add(Employe employe)
 	{
-		employes.remove(employe);
+		employes.add(employe);
+	}
+	
+	boolean remove(Employe employe)
+	{
+		return employes.remove(employe);
 	}
 	
 	/**

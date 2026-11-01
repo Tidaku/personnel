@@ -68,7 +68,10 @@ public class Employe implements Serializable, Comparable<Employe>
 	
 	public void setNom(String nom)
 	{
+		boolean present = retirerDeLaLigue();
 		this.nom = nom;
+		if (present)
+			ligue.add(this);
 	}
 
 	/**
@@ -88,7 +91,10 @@ public class Employe implements Serializable, Comparable<Employe>
 
 	public void setPrenom(String prenom)
 	{
+		boolean present = retirerDeLaLigue();
 		this.prenom = prenom;
+		if (present)
+			ligue.add(this);
 	}
 
 	/**
@@ -108,7 +114,21 @@ public class Employe implements Serializable, Comparable<Employe>
 
 	public void setMail(String mail)
 	{
+		boolean present = retirerDeLaLigue();
 		this.mail = mail;
+		if (present)
+			ligue.add(this);
+	}
+
+	/**
+	 * Retire l'employé de sa ligue avant la modification d'une valeur utilisée
+	 * pour le tri : un TreeSet ne retrouve plus un élément dont le tri a changé.
+	 * @return vrai ssi l'employé était présent dans sa ligue.
+	 */
+	
+	private boolean retirerDeLaLigue()
+	{
+		return ligue != null && ligue.remove(this);
 	}
 
 	/**
@@ -168,7 +188,11 @@ public class Employe implements Serializable, Comparable<Employe>
 		int cmp = getNom().compareTo(autre.getNom());
 		if (cmp != 0)
 			return cmp;
-		return getPrenom().compareTo(autre.getPrenom());
+		cmp = getPrenom().compareTo(autre.getPrenom());
+		if (cmp != 0)
+			return cmp;
+		// Le mail départage les homonymes : le TreeSet supprime les éléments égaux.
+		return getMail().compareTo(autre.getMail());
 	}
 	
 	@Override
