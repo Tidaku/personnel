@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
 /**
  * Représente une ligue. Chaque ligue est reliée à une liste
  * d'employés dont un administrateur. Comme il n'est pas possible
@@ -13,7 +12,6 @@ import java.util.TreeSet;
  * l'administrateur de la ligue jusqu'à ce qu'un administrateur 
  * lui ait été affecté avec la fonction {@link #setAdministrateur}.
  */
-
 public class Ligue implements Serializable, Comparable<Ligue>
 {
 	private static final long serialVersionUID = 1L;
@@ -22,7 +20,7 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	private SortedSet<Employe> employes;
 	private Employe administrateur;
 	private GestionPersonnel gestionPersonnel;
-	
+
 	/**
 	 * Crée une ligue.
 	 * @param nom le nom de la ligue.
