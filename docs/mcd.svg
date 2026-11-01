@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470" font-family="Arial, sans-serif">
+<rect width="900" height="470" fill="#fff"/>
+<text x="40" y="44" font-size="22" font-weight="bold" fill="#06202c">MCD de l'application Personnel</text>
+<line x1="270" y1="150" x2="630" y2="150" stroke="#003c57" stroke-width="2"/>
+<line x1="270" y1="240" x2="745" y2="240" stroke="#003c57" stroke-width="2"/>
+<line x1="745" y1="240" x2="745" y2="218" stroke="#003c57" stroke-width="2"/>
+<ellipse cx="450" cy="150" rx="72" ry="30" fill="#e0f3fb" stroke="#003c57" stroke-width="2"/><text x="450" y="155" text-anchor="middle" font-size="15" font-weight="bold" fill="#06202c">appartenir</text>
+<ellipse cx="450" cy="240" rx="72" ry="30" fill="#e0f3fb" stroke="#003c57" stroke-width="2"/><text x="450" y="245" text-anchor="middle" font-size="15" font-weight="bold" fill="#06202c">administrer</text>
+<text x="305" y="140" text-anchor="middle" font-size="15" font-weight="bold" fill="#a33a14">0,1</text>
+<text x="600" y="140" text-anchor="middle" font-size="15" font-weight="bold" fill="#a33a14">0,n</text>
+<text x="305" y="230" text-anchor="middle" font-size="15" font-weight="bold" fill="#a33a14">0,n</text>
+<text x="725" y="234" text-anchor="middle" font-size="15" font-weight="bold" fill="#a33a14">1,1</text>
+<rect x="40" y="90" width="230" height="169" fill="#fff" stroke="#003c57" stroke-width="2"/><rect x="40" y="90" width="230" height="34" fill="#0b5c80"/><text x="155.0" y="113" text-anchor="middle" font-size="17" font-weight="bold" fill="#fff">Employe</text><text x="54" y="145" font-size="15" font-weight="bold" text-decoration="underline" fill="#06202c">idEmploye</text><text x="54" y="170" font-size="15" fill="#06202c">nom</text><text x="54" y="195" font-size="15" fill="#06202c">prenom</text><text x="54" y="220" font-size="15" fill="#06202c">mail</text><text x="54" y="245" font-size="15" fill="#06202c">password</text>
+<rect x="630" y="120" width="230" height="94" fill="#fff" stroke="#003c57" stroke-width="2"/><rect x="630" y="120" width="230" height="34" fill="#0b5c80"/><text x="745.0" y="143" text-anchor="middle" font-size="17" font-weight="bold" fill="#fff">Ligue</text><text x="644" y="175" font-size="15" font-weight="bold" text-decoration="underline" fill="#06202c">idLigue</text><text x="644" y="200" font-size="15" fill="#06202c">nom</text>
+<text x="40" y="350" font-size="14" fill="#46555c">Le root est l'unique employé sans ligue (0,1 sur appartenir).</text>
+<text x="40" y="375" font-size="14" fill="#46555c">Il administre chaque ligue qui n'a pas d'autre administrateur (0,n sur administrer).</text>
+<text x="40" y="400" font-size="14" fill="#46555c">Contrainte : l'administrateur d'une ligue est le root ou un employé de cette ligue.</text>
+<text x="40" y="425" font-size="14" fill="#46555c">idEmploye n'existe pas dans le code Java : c'est l'identifiant nécessaire en base de données relationnelle.</text>
+</svg>
