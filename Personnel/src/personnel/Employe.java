@@ -1,6 +1,7 @@
 package personnel;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * Employé d'une ligue hébergée par la M2L. Certains peuvent 
@@ -16,15 +17,35 @@ public class Employe implements Serializable, Comparable<Employe>
 	private String nom, prenom, password, mail;
 	private Ligue ligue;
 	private GestionPersonnel gestionPersonnel;
+	private LocalDate dateArrivee, dateDepart;
 	
 	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password)
 	{
+		this(gestionPersonnel, ligue, nom, prenom, mail, password, null, null);
+	}
+	
+	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password, LocalDate dateArrivee, LocalDate dateDepart)
+	{
+		verifierDates(dateArrivee, dateDepart);
 		this.gestionPersonnel = gestionPersonnel;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.password = password;
 		this.mail = mail;
 		this.ligue = ligue;
+		this.dateArrivee = dateArrivee;
+		this.dateDepart = dateDepart;
+	}
+	
+	/**
+	 * Lève DatesIncoherentes si le départ précède l'arrivée, ou si un départ
+	 * est indiqué sans arrivée. Un départ le jour de l'arrivée est accepté.
+	 */
+	
+	private static void verifierDates(LocalDate dateArrivee, LocalDate dateDepart)
+	{
+		if (dateDepart != null && (dateArrivee == null || dateDepart.isBefore(dateArrivee)))
+			throw new DatesIncoherentes();
 	}
 	
 	/**
@@ -152,6 +173,50 @@ public class Employe implements Serializable, Comparable<Employe>
 	public void setPassword(String password)
 	{
 		this.password= password;
+	}
+
+	/**
+	 * Retourne la date d'arrivée de l'employé.
+	 * @return la date d'arrivée, null si elle n'est pas renseignée.
+	 */
+	
+	public LocalDate getDateArrivee()
+	{
+		return dateArrivee;
+	}
+
+	/**
+	 * Change la date d'arrivée de l'employé.
+	 * Lève DatesIncoherentes si elle est incohérente avec la date de départ.
+	 * @param dateArrivee la nouvelle date d'arrivée.
+	 */
+	
+	public void setDateArrivee(LocalDate dateArrivee)
+	{
+		verifierDates(dateArrivee, dateDepart);
+		this.dateArrivee = dateArrivee;
+	}
+
+	/**
+	 * Retourne la date de départ de l'employé.
+	 * @return la date de départ, null si l'employé n'est pas parti.
+	 */
+	
+	public LocalDate getDateDepart()
+	{
+		return dateDepart;
+	}
+
+	/**
+	 * Change la date de départ de l'employé.
+	 * Lève DatesIncoherentes si elle est incohérente avec la date d'arrivée.
+	 * @param dateDepart la nouvelle date de départ.
+	 */
+	
+	public void setDateDepart(LocalDate dateDepart)
+	{
+		verifierDates(dateArrivee, dateDepart);
+		this.dateDepart = dateDepart;
 	}
 
 	/**
