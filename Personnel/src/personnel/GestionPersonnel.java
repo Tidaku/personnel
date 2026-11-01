@@ -64,8 +64,10 @@ public class GestionPersonnel implements Serializable
 	
 	public Ligue getLigue(Employe administrateur)
 	{
-		if (administrateur.estAdmin(administrateur.getLigue()))
-			return administrateur.getLigue();
+		Ligue ligue = administrateur.getLigue();
+		// Le root n'est rattaché à aucune ligue.
+		if (ligue != null && administrateur.estAdmin(ligue))
+			return ligue;
 		else
 			return null;
 	}
