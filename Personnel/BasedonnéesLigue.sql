@@ -5,7 +5,7 @@ CREATE TABLE employe (
   id_employe   INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   nom          VARCHAR(100) NOT NULL,
   prenom       VARCHAR(100) NOT NULL,
-  mail         VARCHAR(254) NOT NULL,
+  mail         VARCHAR(255) NOT NULL,
   password     VARCHAR(255) NOT NULL,
   date_arrivee DATE NULL,
   date_depart  DATE NULL,
