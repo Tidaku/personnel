@@ -280,6 +280,9 @@ public class Employe implements Serializable, Comparable<Employe>
 			res += "super-utilisateur";
 		else
 			res += ligue.toString();
-		return res + ")";
+		 res + ")";
+		if (dateNaissance != null)
+			res += " né(e) le " + dateNaissance;
+		return res;
 	}
 }
