@@ -62,5 +62,14 @@ public class EmployeConsole
 	private LocalDate saisirDate(String message)
 	{
 		while (true)
-	
+			{
+				String saisie = getString(message);
+				try
+					{
+						return LocalDate.parse(saisie, Format_Date);
+					}
+				catch(DateTimeParseException exception)
+					{
+						System.err.println("Date invalide. Le format attendu est jj/mm/aaaa.");
+					
 }
