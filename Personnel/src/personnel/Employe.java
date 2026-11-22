@@ -25,6 +25,11 @@ public class Employe implements Serializable, Comparable<Employe>
 		return dateNaissance; 
 	}
 	
+	public void setDateNaissance(LocalDate dateNaissance)
+	{
+		this.dateNaissance = dateNaissance;
+	}
+
 	
 	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password)
 	{
