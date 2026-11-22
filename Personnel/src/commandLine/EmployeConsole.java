@@ -71,5 +71,7 @@ public class EmployeConsole
 				catch(DateTimeParseException exception)
 					{
 						System.err.println("Date invalide. Le format attendu est jj/mm/aaaa.");
-					
+					}
+			}
+	}
 }
