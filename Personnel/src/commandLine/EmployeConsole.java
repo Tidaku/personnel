@@ -59,4 +59,8 @@ public class EmployeConsole
 		return new Option("Supprimer l'employé", "s", () -> {employe.remove();});
 	}
 
+	private LocalDate saisirDate(String message)
+	{
+		while (true)
+	
 }
