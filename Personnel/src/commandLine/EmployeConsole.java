@@ -27,6 +27,7 @@ public class EmployeConsole
 			menu.add(changerPrenom(employe));
 			menu.add(changerMail(employe));
 			menu.add(changerPassword(employe));
+			menu.add(supprimerEmploye(employe));
 			menu.addBack("q");
 			return menu;
 	}
