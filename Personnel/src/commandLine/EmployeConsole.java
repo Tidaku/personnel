@@ -53,6 +53,10 @@ public class EmployeConsole
 	{
 		return new Option("Changer le password", "x", () -> {employe.setPassword(getString("Nouveau password : "));});
 	}
-	
+
+	private Option supprimerEmploye(final Employe employe) 
+	{
+		return new Option("Supprimer l'employé", "s", () -> {employe.remove();});
+	}
 
 }
